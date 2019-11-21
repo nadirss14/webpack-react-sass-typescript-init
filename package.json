@@ -1,0 +1,44 @@
+{
+  "name": "webpack-react-sass-typescript-init",
+  "version": "1.0.0",
+  "description": "Initial project with webpack, react, sass and typescript",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadirss14/webpack-react-sass-typescript-init.git"
+  },
+  "author": "nadirss14@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadirss14/webpack-react-sass-typescript-init/issues"
+  },
+  "homepage": "https://github.com/nadirss14/webpack-react-sass-typescript-init#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
