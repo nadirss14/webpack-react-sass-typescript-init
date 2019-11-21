@@ -1,70 +1,72 @@
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
-  entry: path.resolve(__dirname, "./src/index.js"),
+  entry: path.resolve(__dirname, './src/index.js'),
   output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx'],
   },
-  mode: "development",
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ['babel-loader'],
       },
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: ['html-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          process.env.NODE_ENV !== "production"
-            ? "style-loader"
+          process.env.NODE_ENV !== 'production'
+            ? 'style-loader'
             : MiniCssExtractPlugin.loader,
-          "css-loader",
+          'css-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sassOptions: {
                 indentWidth: 4,
-                includePaths: ["absolute/path/a", "absolute/path/b"]
-              }
-            }
-          }
-        ]
+                includePaths: ['absolute/path/a', 'absolute/path/b'],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
-            limit: 90000
-          }
-        }
-      }
-    ]
+            limit: 90000,
+          },
+        },
+      },
+    ],
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
-    port: 9000
+    contentBase: path.resolve(__dirname, 'dist'),
+    port: 9000,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "./index.html"
+      template: './public/index.html',
+      filename: './index.html',
+      title: 'Webpack Project Init',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
-    new CleanWebpackPlugin()
-  ]
+    new CleanWebpackPlugin(),
+  ],
 };
